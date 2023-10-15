@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login form</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="adminLogindata.php" method="POST">
+            <h2>Login</h2>
+            
+            <div class="input-field">
+                <input type="text" required name="a_email">
+                <label>Enter your email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" required name="a_pass" >
+                <label>Enter your password</label>
+            </div>
+            <div class="forget">
+                <!-- <label for="remember">
+                    <input type="checkbox" id="remember"> 
+                </label> -->
+                 <a href="#">Forgot password?</a>
+            </div>
+            <input type="submit" name="submit" value="Login" class="button" />
+            <div class="register">
+                <p>Don't have an account? <a href="admin_registration.html">Register</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

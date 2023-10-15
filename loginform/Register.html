@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="Registerdata.php" method="POST">
+            <h2>Register</h2>
+            
+            <div class="input-field">
+                <input type="text" required name="u_name">
+                <label>user name</label>
+            </div>
+            <div class="input-field">
+                <input type="number" required name="u_phone">
+                <label>phone no.</label>
+            </div>
+            <div class="input-field">
+                <input type="email" required name="u_email">
+                <label>email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" required name="u_pass" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 characters">
+                <label>password</label>
+            </div>
+            <div class="input-field">
+                <input type="password" required name="u_confirmpassword"  id="confirm_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="psaaword is not match">
+                <label>confirmpassword</label>
+            </div>
+        
+            <input type="submit" name="submit" value="register" class="button"/>
+            <div class="register">
+                <p>You have an account? <a href="login.html">login</a></p>
+            </div>
+        </form>
+    </div>
+
+
+</body>
+
+</html>

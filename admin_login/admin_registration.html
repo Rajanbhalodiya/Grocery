@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>adminregistration</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <form action="adminregistration.php" method="POST">
+            <h2>admin registration</h2>
+            
+            <div class="input-field">
+                <input type="text" required name="a_name">
+                <label>name</label>
+            </div>
+            <div class="input-field">
+                <input type="number" required name="a_bank_detail">
+                <label>bank_detail</label>
+            </div>
+            <div class="input-field">
+                <input type="number" required name="a_contact">
+                <label>contact</label>
+            </div>
+            <div class="input-field">
+                <input type="email" required name="a_email">
+                <label>email</label>
+            </div>
+            <div class="input-field">
+                <input type="password" required name="a_password">
+                <label>password</label>
+            </div>
+            
+            <input type="submit" name="submit" value="submit" class="button"/>
+            <div class="register">
+                <p>Don't have an account? <a href="adminlogin.html">Login</a></p>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>

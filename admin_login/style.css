@@ -21,7 +21,7 @@ body::before {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url("./bg-img.jpg") #000;
+    background: url("./bg-img.webp") #000;
     background-position: center;
     background-size: cover;
 }
@@ -31,7 +31,7 @@ body::before {
     border-radius: 8px;
     padding: 30px;
     text-align: center;
-    border: 3px solid rgba(225, 227, 232, 0.915);
+    border: 3px solid rgba(26, 26, 27, 0.915);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(9px);
 }
@@ -44,12 +44,12 @@ form {
 h2 {
     font-size: 2rem;
     margin-bottom: 20px;
-    color: #fff;
+    color: rgba(26, 26, 27, 0.915);
 }
 
 .input-field {
     position: relative;
-    border-bottom: 2px solid #ccc;
+    border-bottom: 2px solid #0c0c0c;
     margin: 15px 0;
 }
 
@@ -58,7 +58,7 @@ h2 {
     top: 55%;
     left: 0;
     transform: translateY(-50%);
-    color: #fff;
+    color: rgba(26, 26, 27, 0.915);
     font-size: 16px;
     pointer-events: none;
     transition: 0.15s ease;
@@ -71,7 +71,7 @@ h2 {
     border: none;
     outline: none;
     font-size: 16px;
-    color: #fff;
+    color:rgba(26, 26, 27, 0.915);
 }
 
 .input-field input:focus~label,

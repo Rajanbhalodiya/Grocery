@@ -9,11 +9,11 @@ $con = mysqli_connect($HOST,$USER,$PASS,$DB);
 
 if($con)
 {
-    echo 'success';
+    // echo 'success';
 }
 else
 {
-    echo 'failed';
+    // echo 'failed';
 }
 
 

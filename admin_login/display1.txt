@@ -1,0 +1,308 @@
+  
+
+  <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>display</title>
+
+
+      <!-- fa fa icon  -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      
+    <!--css file-->
+    <link rel="stylesheet" href="display.css" />
+  </head>
+  <body>
+    <section class="sidebar">
+      <a href="#" class="logo">
+        <i class="fa fa-slack" aria-hidden="true"></i>
+        <span class="text">Admin Panel</span>
+      </a>
+
+      <ul class="side-menu top">
+        <li class="active">
+          <a href="#" class="nav-link">
+            <i class="fa fa-home"></i>
+            <span class="text">Product</span>
+          </a>
+        </li>
+        <li>
+          <a href="./add-product.php" class="nav-link">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="text">add Product</span>
+          </a>
+        </li>
+    
+      
+       
+      </ul>
+
+      <ul class="side-menu">
+        <li>
+          <a href="#">
+            <i class="fa fa-gear"></i>
+            <span class="text">Settings</span>
+          </a>
+        </li>
+        <li>
+          <a href="logout.php" class="logout">
+            <i class="fa fa-sign-out"></i>
+            <span class="text">Logout</span>
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <section class="content">
+      <nav>
+        <a href="#" class="nav-link">Categories</a>
+        <form method="POST">
+          <div class="form-input">
+          <input type="search" id="searchInput" name="search" placeholder="search..." />
+            <button class="search-btn" name="product" type="submit">
+              <i class="fa fa-search"></i>
+            </button>
+          </div>
+        </form>
+
+
+                <?php
+                        include "conn.php";
+
+                        if(isset($_POST['product']))
+                        {
+                          // $id = $_POST['get_id'];
+                          $search=$_POST['search'];
+                          
+                          $query = "SELECT * FROM `addproduct` WHERE `name` LIKE '%$search%' ";
+                          $query_run = mysqli_query($con, $query);
+                          
+                            // if(mysqli_num_rows ($query_run) > 0)
+                            // {
+                            //     while($row = mysqli_fetch_array($query_run))
+                            //     {
+
+                            //       echo $row['id'];
+                            //       echo $row['name'];
+                            //       echo $row['prisce'];
+                            //       echo $row['discripstion'];
+                            //       echo $row['quanity'];
+                            //       echo $row['weight'];
+                            //     }  
+                            // }
+                            // else
+                            // {
+                            //   echo "No Data Available";
+                            // }
+                            
+                        // }   
+
+                ?>
+
+        <!-- <?php
+
+        if(isset($_POST['submit']))
+        {
+          $search=$_POST['search'];
+          $q = "SELECT * FROM `addproduct` WHERE `name` LIKE '%$search%' ";
+          $r=mysqli_query($conn,$q);
+
+          if($r){
+            echo '<script>alert("Successful")</script>';
+          }else{
+            echo '<script>alert("data is not match")</script>';
+          }
+        }
+        else{
+
+        }
+        
+        ?> -->
+
+        <input type="checkbox" hidden id="switch-mode" />
+        <label for="switch-mode" class="switch-mode"></label>
+
+        <a href="#" class="notification">
+          <i class="fa fa-bell"></i>
+          <span class="num">28</span>
+        </a>
+
+        <a href="#" class="profile">
+          <img src="./admin.jpg" alt="img" />
+        </a>
+      </nav>
+
+      <main>
+        <div class="head-title">
+          <div class="left">
+            <h1>Product</h1>
+            <ul class="breadcrumb">
+              <li>
+                <a href="#">Product</a>
+              </li>
+              <i class="fa fa-chevron-right"></i>
+              <li>
+                <a href="#" class="active">Home</a>
+              </li>
+            </ul>
+          </div>
+
+          <a href="#" class="download-btn">
+            <i class="fa fa-download"></i>
+            <span class="text">Download Report</span>
+          </a>
+        </div>
+
+        
+        <div class="table-data">
+          <div class="order">
+            <div class="head">
+              <h3>Recent Update</h3>
+              <i class="fa fa-search"></i>
+              <i class="fa fa-filter"></i>
+            </div>
+
+            <table>
+              <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>name</th>
+                    <th>img</th>
+                    <th>prisce</th>
+                    <th>discripstion</th>
+                    <th>quantity</th>
+                    <th>weight</th>
+                </tr> 
+              </thead>
+                <tbody>
+
+
+
+
+                <?php
+
+include 'conn.php'; 
+ $q = "SELECT * FROM `addproduct` ";
+
+ $query = mysqli_query($con,$q);
+
+ while($res = mysqli_fetch_array($query)){
+?>
+<tr class="text-center">
+<td> <?php echo $res['id'];  ?> </td>
+<td> <?php echo $res['name'];  ?> </td>
+<td> 
+  <img src="<?php echo "uploaded/img/".$res['img']; ?>" alt="Product Image " > 
+</td>
+<td> <?php echo $res['prisce'];  ?> </td>
+<td> <?php echo $res['discripstion'];  ?> </td>
+<td> <?php echo $res['quanity'];  ?> </td>
+<td> <?php echo $res['weight'];  ?> </td>
+<td> <button class="btn-danger btn"> <a href="delet-product.php?id=<?php echo $res['id'];  ?>" class="text-white"> Delete </a>  </button> </td>
+<td> <button class="btn-primary btn"> <a href="updet-product.php?id=<?php echo $res['id'];  ?>" class="text-white"> Update </a> </button> </td>
+
+</tr>
+
+<?php 
+}
+  ?>
+
+
+
+                  <!-- searce  -->
+                  <?php
+                      if(isset($_POST['product']))
+                      {
+                        if(mysqli_num_rows ($query_run) > 0)
+                        {
+                            while($row = mysqli_fetch_array($query_run))
+                            {
+                  ?>
+
+                  
+                        <tr>
+
+                          <td> <?php echo $row['id'];  ?> </td>
+                          <td> <?php echo $row['name'];  ?> </td>
+                          <td> 
+                            <img src="<?php echo "uploaded/img/".$row['img']; ?>" alt="Product Image " > 
+                          </td>
+                          <td> <?php echo $row['prisce'];  ?> </td>
+                          <td> <?php echo $row['discripstion'];  ?> </td>
+                          <td> <?php echo $row['quanity'];  ?> </td>
+                          <td> <?php echo $row['weight'];  ?> </td>
+                          <td> <button class="btn-danger btn"> <a href="delet-product.php?id=<?php echo $row['id'];  ?>" class="text-white"> Delete </a>  </button> </td>
+                          <td> <button class="btn-primary btn"> <a href="updet-product.php?id=<?php echo $row['id'];  ?>" class="text-white"> Update </a> </button> </td>
+                        
+                        </tr>
+                        
+
+                <!-- <?php
+
+                  include 'conn.php'; 
+                   $q = "SELECT * FROM `addproduct` ";
+
+                   $query = mysqli_query($con,$q);
+
+                   while($res = mysqli_fetch_array($query)){
+                ?>
+                  <tr class="text-center">
+                  <td> <?php echo $res['id'];  ?> </td>
+                  <td> <?php echo $res['name'];  ?> </td>
+                  <td> 
+                    <img src="<?php echo "uploaded/img/".$res['img']; ?>" alt="Product Image " > 
+                  </td>
+                  <td> <?php echo $res['prisce'];  ?> </td>
+                  <td> <?php echo $res['discripstion'];  ?> </td>
+                  <td> <?php echo $res['quanity'];  ?> </td>
+                  <td> <?php echo $res['weight'];  ?> </td>
+                  <td> <button class="btn-danger btn"> <a href="delet-product.php?id=<?php echo $res['id'];  ?>" class="text-white"> Delete </a>  </button> </td>
+                  <td> <button class="btn-primary btn"> <a href="updet-product.php?id=<?php echo $res['id'];  ?>" class="text-white"> Update </a> </button> </td>
+
+                  </tr>
+
+                  <?php 
+                  }
+                    ?> -->
+
+
+                  <!-- search -->
+                  <?php
+                          }  
+                        }
+                        else
+                        {
+                          ?>
+                          <tr>
+                            <td colspan="7">no record found</td>
+                          </tr>
+                          <?php
+                          // echo "No Data Available";
+                        } 
+                      } 
+                  ?>
+
+
+                          <!-- searc -->
+                          <?php
+                                 }  
+                          ?>
+                </tbody>
+            </table>
+
+
+
+
+          </div>
+          
+        </div>
+      </main>
+    </section>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  </body>
+</html>
